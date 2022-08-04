@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="javascript.js" defer></Script>
+  <title>Document</title>
 </head>
+
 <body>
+  <div class="header">
+  <button id="addBook">Add Book + </button><br>
+
+  </div>
+  <div class="popup">
+  <div class="close-btn"><button>X</button></div>
+  <div id="form">
+    <label for="bookName">Name:</label><br>
+    <input type="text" id="bookName" name="bookName" placeholder="Book name" required><br>
+    <label for="Author">Author:</label><br>
+    <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Author" required><br>
+    <label for="Pages">Pages:</label><br>
+    <input type="number" id="bookPages" name="bookPages" placeholder="Pages" required><br>
+    <label for="MarkAsRead">Mark as read</label>
+    <input type="checkbox" id="Yes" name="Yes" value="Yes"> <br>
+    <button id="Submit">Submit</button>
+  </div>
+  </div>
+  <div id="append">
+    <div id="containerCard">
+    </div>
+  </div>
 
 
 
-
-    <script src="javascript.js"></Script>
 </body>
 </html>

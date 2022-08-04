@@ -1,0 +1,121 @@
+.header {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+#card {
+    width: 350px;
+    height: 250px;
+}
+
+#append {
+}
+
+#addBook {
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+    background-color: #f5f5f5;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.popup {
+    position: absolute;
+    top: -150%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.25);
+    width: 380px;
+    padding: 20px 30px;
+    background: #fff;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    transition: top 0ms ease-in-out 200ms,
+                opacity 200ms ease-in-out 0ms,
+                transform 200ms ease-in-out 0ms;
+}
+
+.popup.active {
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1);
+    transition: top 0ms ease-in-out 0ms,
+                opacity 200ms ease-in-out 0ms,
+                transform 200ms ease-in-out 0ms;
+}
+
+.popup .close-btn {
+    position: absolute;
+    top:10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    background-color: #888;
+    color: #eee;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#form, .popup.active {
+    background-color: lightgreen;
+}
+
+.container {
+    /*position: absolute;*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 50px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+}
+
+.container .toggle {
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 20px;
+    background-color: #444;
+    border-radius: 30px;
+    transition: 0.3s;
+
+}
+
+
+.container .toggle .toggle-button{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+.container .toggle.active {
+    background: cornflowerblue;
+
+}
+
+.container .toggle.active .toggle-button{
+    left: 20px;
+}
+
+.container .texto {
+    position: absolute;
+    right: 8px;
+    width: 126px;
+    font-size: 24px;
+}
