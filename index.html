@@ -12,29 +12,51 @@
 
 <body>
   <div class="header">
-  <button id="addBook">Add Book + </button><br>
+    <div class="blueBackground">
+      <div class="left">
+        <img src="img/Group 18.png" alt="logo" class="logo"></img>
 
-  </div>
-  <div class="popup">
-  <div class="close-btn"><button>X</button></div>
-  <div id="form">
-    <label for="bookName">Name:</label><br>
-    <input type="text" id="bookName" name="bookName" placeholder="Book name" required><br>
-    <label for="Author">Author:</label><br>
-    <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Author" required><br>
-    <label for="Pages">Pages:</label><br>
-    <input type="number" id="bookPages" name="bookPages" placeholder="Pages" required><br>
-    <label for="MarkAsRead">Mark as read</label>
-    <input type="checkbox" id="Yes" name="Yes" value="Yes"> <br>
-    <button id="Submit">Submit</button>
-  </div>
-  </div>
-  <div id="append">
-    <div id="containerCard">
+        <div class="lineTwo"></div>
+      </div>
+      <div class="center">
+      <button id="addBook">Add Book + </button>
+      </div>
+      <div class="right">
+      <img src="img/profilePicture.jpeg" class="profilePicture" alt="profilePicture" ></img>
+      <div class="textContainer">
+      <p class="textWelcome">Welcome,</p>
+      <p class="textName">Antonio</p>
+      </div>
+      <img src="img/login-variant.svg" class="logOut" alt="logout" ></img>
+      </div>
     </div>
   </div>
+  <div class="line"></div>
+  <div class="popup">
+    <div class="close-btn"><button>X</button></div>
+    <div id="form">
+      <label for="bookName">Name:</label><br>
+      <input type="text" id="bookName" name="bookName" placeholder="Book name" required><br>
+      <label for="Author">Author:</label><br>
+      <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Author" required><br>
+      <label for="Pages">Pages:</label><br>
+      <input type="number" id="bookPages" name="bookPages" placeholder="Pages" required><br>
+      <label id="read">
+        <input type="checkbox" id="bookRead">Mark as read
+        <span class="slider round"></span>
+      </label>
+      <button id="Submit">Submit</button>
+    </div>
+  </div>
+  <div id="append">
 
+  </div>
 
+  <footer class="footer">
+    <a id="link" href="https://it.linkedin.com/in/antonio-simonetti-it/" target="_blank"><h3>Created by:Totino</h3></a>
+   
+    <a id="link" class="rotate" href="https://github.com/AntonioSimonetti" target="_blank"><img src="img/gitHubLogo.png" class="gitSimb"></a></footer>
 
 </body>
+
 </html>

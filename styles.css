@@ -1,27 +1,225 @@
+/*   COLORS
+
+BACKGROUND: #30393B 
+HEADER BG/ CARD BG: #255B69
+HEADER INT: #001A2D
+HEADER TXT/ ICON: #00F59F
+LOGO GRADIENT: LINEAR #0CBEE9 TO #00F59F
+HEADER VERT LINE: #255B69
+HEADER ORIZ LINE: #0CBEE9
+CARD TXT: #F4F5F5
+CARD ICON: #00F59F
+CARD TOGCERCHIO: #30393B
+FIRMA: #979D9E
+*/
+
+/* hind-regular - latin */
+@font-face {
+    font-family: Hind;
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/hind-v16-latin-regular.eot');
+    /* IE9 Compat Modes */
+    src: url(Fonts/hind-v16-latin/hind-v16-latin-regular.ttf);
+    url('../fonts/hind-v16-latin-regular.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+    url('../fonts/hind-v16-latin-regular.woff2') format('woff2'),
+    /* Super Modern Browsers */
+    url('../fonts/hind-v16-latin-regular.woff') format('woff'),
+    /* Modern Browsers */
+    url('../fonts/hind-v16-latin-regular.ttf') format('truetype'),
+    /* Safari, Android, iOS */
+    url('../fonts/hind-v16-latin-regular.svg#Hind') format('svg');
+    /* Legacy iOS */
+}
+
+body,
+html {
+    background-color: #30393B;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
+}
+
+
 .header {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 5rem;
     flex: 1;
+    background-color: #255B69;
+    box-shadow:
+        2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+        6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+        12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+        22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+        41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+        100px 100px 80px rgba(0, 0, 0, 0.07);
+
+
+
+}
+
+.blueBackground {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #001A2D;
+    width: 99%;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 439px;
+    height: 50px;
+}
+
+.left {
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 439px;
+    height: 50px;
+    border: 10px;
+
+}
+
+.logo {
+
+    width: 8rem;
+    height: 2rem;
+}
+
+.lineTwo {
+    margin-left: 100px;
+    height: 100%;
+    width: 1px;
+    background-color: #255B69;
+}
+
+.profilePicture {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.logOut {
+    filter: invert(67%) sepia(90%) saturate(750%) hue-rotate(102deg) brightness(97%) contrast(101%);
+    width: 100px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 439px;
+    height: 50px;
+}
+
+.textContainer {
+    margin-top: 1px;
+    margin-left: 5px;
+    line-height: 0;
+}
+
+.textWelcome {
+    color: #00F59F;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.textName {
+    color: #00F59F;
+    font-weight: bolder;
+}
+
+.line {
+    height: 1px;
+    width: 100%;
+    background-color: #0CBEE9;
+
 }
 
 #card {
+
+    background-color: #255B69;
+    color: #F4F5F5;
+    border-radius: 10px;
     width: 350px;
     height: 250px;
+    display: flex;
+    flex-direction: column;
+    line-height: 10px;
 }
 
+#card p {
+    margin-left: 10px;
+}
+
+.remove-book-button {
+    filter: invert(67%) sepia(90%) saturate(750%) hue-rotate(102deg) brightness(97%) contrast(101%);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    order: 1;
+
+}
+
+.read-status-button {
+    display: flex;
+    width: 60px;
+    height: 32px;
+    font-size: 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: #00F59F;
+    color: #255B69;
+
+}
+
+.divContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    order: 1;
+    margin-top: 40px;
+    gap: 15rem;
+}
+
+
 #append {
+    gap: 10px;
+    display: grid;
+    margin-left: 10rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-rows: repeat(2, 1fr);
+
+
 }
 
 #addBook {
-    padding: 10px 20px;
-    font-size: 15px;
+    height: 20px;
+    font-size: 18px;
     font-weight: 600;
-    color: #222;
-    background-color: #f5f5f5;
+    color: #00F59F;
+    background-color: #001A2D;
     border: none;
     outline: none;
     cursor: pointer;
-    border-radius: 5px;
+
 }
 
 .popup {
@@ -33,25 +231,31 @@
     width: 380px;
     padding: 20px 30px;
     background: #fff;
-    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
     transition: top 0ms ease-in-out 200ms,
-                opacity 200ms ease-in-out 0ms,
-                transform 200ms ease-in-out 0ms;
+        opacity 200ms ease-in-out 0ms,
+        transform 200ms ease-in-out 0ms;
 }
 
 .popup.active {
     top: 50%;
     opacity: 1;
-    transform: translate(-50%,-50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
     transition: top 0ms ease-in-out 0ms,
-                opacity 200ms ease-in-out 0ms,
-                transform 200ms ease-in-out 0ms;
+        opacity 200ms ease-in-out 0ms,
+        transform 200ms ease-in-out 0ms;
+}
+
+.close-btn button {
+    background-color: #00F59F;
+    border: none;
+
 }
 
 .popup .close-btn {
     position: absolute;
-    top:10px;
+    top: 10px;
     right: 10px;
     width: 15px;
     height: 15px;
@@ -63,59 +267,56 @@
     cursor: pointer;
 }
 
-#form, .popup.active {
-    background-color: lightgreen;
+#form,
+.popup.active {
+    background-color: #001A2D;
+    color: #F4F5F5;
 }
 
-.container {
-    /*position: absolute;*/
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    height: 50px;
+#Submit {
+    background-color: #00F59F;
+    border: none;
+    border-radius: 10px;
+    margin-left: 21rem;
+    color: #001A2D ;
+    padding: 8px;
+}
+
+#read {
+   
+}
+
+.footer {
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-
-}
-
-.container .toggle {
-    top: 0;
-    left: 0;
-    width: 40px;
-    height: 20px;
-    background-color: #444;
-    border-radius: 30px;
-    transition: 0.3s;
-
-}
-
-
-.container .toggle .toggle-button{
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
     position: relative;
-    top: 0px;
-    left: 0px;
-    width: 20px;
-    height: 20px;
-    background-color: blue;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.3s;
 
 }
 
-.container .toggle.active {
-    background: cornflowerblue;
-
+#link {
+    color: #979D9E;
+    text-decoration: none;
 }
 
-.container .toggle.active .toggle-button{
-    left: 20px;
+#titleLink {
+    text-decoration: underline;
+    color: #979D9E;
 }
 
-.container .texto {
-    position: absolute;
-    right: 8px;
-    width: 126px;
-    font-size: 24px;
+.rotate {
+    transition: transform 0.3s ease-in-out;
+    filter: invert(72%) sepia(9%) saturate(130%) hue-rotate(141deg) brightness(85%) contrast(91%);
+}
+
+.rotate:hover {
+    transform: rotate(360deg) scale(1.2);
+}
+
+.gitSimb {
+    margin-left: 0.5rem;
+    height: 1.2rem;
+    width: 1.2rem;
+    color: #979D9E;
 }

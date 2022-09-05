@@ -1,12 +1,11 @@
 class Book {  
 
-    constructor (name,author,pages) {
-    this.name = name;
-    this.author = author;
-    this.pages = pages;
-    this.info = function summary(){
-        console.log(`${this.name}` + " by " + `${this.author}` + " is " + `${this.pages}` + " pages");
-    }
+    constructor (Name,author,pages,read) {
+    this.Name = Name;
+    this.Author = author;
+    this.Pages = pages;
+    this.Read = read;
+ 
 
     };
    
@@ -15,12 +14,12 @@ class Book {
 
   let myLibrary = [];
 
-  document.getElementById("addBook").addEventListener("click", addBook);
+  document.getElementById("addBook").addEventListener("click", addBook);   //Addbook button
   function addBook () {
     document.querySelector(".popup").classList.add("active"); 
   };
 
- document.querySelector(".popup .close-btn").addEventListener("click", closeAddBook);
+ document.querySelector(".popup .close-btn").addEventListener("click", closeAddBook); // X button in popup
  function closeAddBook () {
   document.querySelector(".popup").classList.remove("active"); 
   };
@@ -29,70 +28,98 @@ class Book {
 document.getElementById("Submit").addEventListener("click", displayBook);
 
 
-function displayBook(){ 
-  
-     var appendDiv = document.getElementById("append");
-     appendDiv.innerHTML = "";
-
-     let bookName = document.getElementById("bookName").value;
-     let bookAuthor = document.getElementById("bookAuthor").value;
-     let bookPages = document.getElementById("bookPages").value;
-     const book1 = myLibrary.push(new Book(bookName,bookAuthor,bookPages))
-     console.log(myLibrary);
-
-
-  for (let i = 0; i < myLibrary.length; i++) {
+function displayBook(){   //submit
      
-     const para = document.createElement("p");
-     const para1 = document.createElement("p");
-     const para2 = document.createElement("p");
-     const node = document.createTextNode("Name: " + myLibrary[i].name);
-     const node1 = document.createTextNode("Author: " + myLibrary[i].author);
-     const node2 = document.createTextNode("Pages: " + myLibrary[i].pages);
-     para.appendChild(node);
-     para1.appendChild(node1);
-     para2.appendChild(node2);
-     const card = document.createElement("div");
-     card.setAttribute("id", "card");
-     card.appendChild(para);
-     card.appendChild(para1);
-     card.appendChild(para2);
-     var elem = document.createElement("img");
-     elem.setAttribute("src",'img/delete.svg');
-     elem.setAttribute("height", "20");
-     elem.setAttribute("width", "20");
-     elem.setAttribute("alt", "deleteButton");
-     card.appendChild(elem);
-     let cnt = document.createElement("div");
-     cnt.setAttribute("class","container");
-     let toggle = document.createElement("div");
-     toggle.setAttribute("class", "toggle");
-     let toggleBtn = document.createElement("div");
-     toggleBtn.setAttribute("class", "toggle-button");
-     toggle.appendChild(toggleBtn);
-     let texto = document.createElement("div");
-     texto.setAttribute("class", "texto");
-     cnt.appendChild(toggle);
-     cnt.appendChild(texto);
-     card.appendChild(cnt);
-     appendDiv.appendChild(card);
+     
+     const removeDiv = document.querySelectorAll(".card");
+     for (let i = 0; i < removeDiv.length; i++) {
+       removeDiv[i].remove();
+     };
+
+     let Name = document.getElementById("bookName").value;
+     let author = document.getElementById("bookAuthor").value;
+     let pages = document.getElementById("bookPages").value;
+     let read = document.getElementById("bookRead").checked;
+     const book1 = myLibrary.push(new Book(Name,author,pages,read)); 
+     const appendDiv = document.getElementById("append");
+
+  let index = 0;
+    myLibrary.forEach((myLibrarys) => {
+
+      const card = document.createElement("div");
+      card.classList.add("card");
+      card.setAttribute("id", "card");
+
+      const divContainer = document.createElement("div");
+      divContainer.classList.add("divContainer");
+      const removeBookButton = document.createElement("img");
+      removeBookButton.src = "img/delete.svg";
+      removeBookButton.classList.add("remove-book-button");
+      removeBookButton.textContent = "X";
+      removeBookButton.dataset.linkedArray = index;
+      divContainer.appendChild(removeBookButton);
+
+
+      //card.appendChild(removeBookButton);
+
+      removeBookButton.addEventListener("click", removeBookFromLibrary);
+
+      const readStatusButton = document.createElement("button");
+      readStatusButton.classList.add("read-status-button");
+      readStatusButton.textContent = "Mark as read";
+      readStatusButton.dataset.linkedArray = index;
+      divContainer.appendChild(readStatusButton);
+      card.appendChild(divContainer);
+  
+      //card.appendChild(readStatusButton);
+
+      appendDiv.appendChild(card);
+
+      readStatusButton.addEventListener("click", toggleReadStatus);
+
+      function toggleReadStatus() {
+        
+        let retrieveBookToToggle = readStatusButton.dataset.linkedArray;  
+        const indiceToggle = parseInt(retrieveBookToToggle);
+        //Book.prototype = Object.create(Book.prototype);
+        //const toggleBook = new Book();
+
+        if((myLibrary[indiceToggle].Read) == true) {
+          //toggleBook.read = false;
+          myLibrary[indiceToggle].Read = false;
+        } else if ((myLibrary[indiceToggle].Read) == false) {
+          //toggleBook.read = true;
+          myLibrary[indiceToggle].Read = true;
+      } 
+      
+      const toggle = card.querySelector("p:last-child");
+      toggle.textContent = "Read: " + myLibrary[indiceToggle].Read;
+
+
+    }
+
+     function removeBookFromLibrary() {
+      let retrieveBookToRemove = removeBookButton.dataset.linkedArray;
+      
+      myLibrary.splice(parseInt(retrieveBookToRemove), 1);
+      card.remove();
+    };
+
+    for (let key in myLibrarys) {
+      console.log(`${key}: ${myLibrarys[key]}`);
+      const para = document.createElement("p");
+      para.textContent = `${key}: ${myLibrarys[key]}`;
+      card.appendChild(para);
+    };
+
+     index++
+    });
 
   } 
+ 
 
 
 
-};
-
-let toggle = document.querySelector(".toggle");
-
-function animatedToggle(){
-    toggle.classList.toggle("active");
-}
 
 
-/*  <div class="container"> 
-    <div class="toggle">
-      <div class="toggle-button" onclick="animatedToggle()"></div>
-    </div>
-      <div class="texto"><p>Mark as read</p></div>
-  </div> */
+
